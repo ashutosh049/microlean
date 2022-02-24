@@ -75,7 +75,7 @@ paginate = 8 #frontpage pagination
   # Include any custom CSS and/or JS files, url or relative to /static folder
   #custom_css = ["css/lightbox.css", "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css", "css/main.css"]
   #custom_js = ["js/lightbox.js", "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js", "js/main.js"]
-git submodule add -b master https://github.com/ashutosh049/ashutosh049.github.io.git public
+
   [[params.addtional_menus]]
   title =  "ABOUT"
   href =  "/top/about/"
