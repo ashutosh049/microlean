@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-177198277-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-177198277-1');
+    </script>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Microlean">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://ashutosh049.github.io//images/banners/main_background.jpg">
+    <meta property="twitter:image" content="https://ashutosh049.github.io//images/banners/main_background.jpg" />
+    
+
+    
+    <meta name="title" content="Binary Tree: Maximum Depth/Height Of Deepest Node using recursive and iterative way" />
+    <meta property="og:title" content="Binary Tree: Maximum Depth/Height Of Deepest Node using recursive and iterative way" />
+    <meta property="twitter:title" content="Binary Tree: Maximum Depth/Height Of Deepest Node using recursive and iterative way" />
+    
+
+    
+    <meta name="description" content="Solving Binary Tree: Maximum Depth/Height Of Deepest Node">
+    <meta property="og:description" content="Solving Binary Tree: Maximum Depth/Height Of Deepest Node" />
+    <meta property="twitter:description" content="Solving Binary Tree: Maximum Depth/Height Of Deepest Node" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Kumar, Ashutosh, java, spring, microservice, cloud, dsa, data structure, algorithm">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Binary Tree: Maximum Depth/Height Of Deepest Node using recursive and iterative way-Kumar Ashutosh Topics in Software Engineering</title>
+
+    <link rel="canonical" href="/post/binary-tree-maximum-depthheight-of-deepest-node-using-recursive-and-iterative-way-hpp/binary-tree-maximum-depthheight-of-deepest-node-using-recursive-and-iterative-way-hpp/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Microlean</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/leetcode">leetcode</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/tech">tech</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/images/github-pagesLightBlue.jpeg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/java" title="Java">
+                            Java
+                        </a>
+                        
+                        <a class="tag" href="/tags/dsa" title="DSA">
+                            DSA
+                        </a>
+                        
+                        <a class="tag" href="/tags/leetcode" title="Leetcode">
+                            Leetcode
+                        </a>
+                        
+                        <a class="tag" href="/tags/binary-tree" title="Binary Tree">
+                            Binary Tree
+                        </a>
+                        
+                        <a class="tag" href="/tags/tree-travesal" title="Tree Travesal">
+                            Tree Travesal
+                        </a>
+                        
+                    </div>
+                    <h1>Binary Tree: Maximum Depth/Height Of Deepest Node using recursive and iterative way</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                        Posted on
+                        Monday, August 31, 2020
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>Contents</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+        <li><a href="#the-calling-function">The calling function</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                
+                <p><u><a href="https://dev.to/ashutosh049/series/16012">Module: Binary Tree</a></u></p>
+<p>You can refer to the Leetcode problem <a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/">104. Maximum Depth of Binary Tree</a></p>
+<h4 id="problem-statement">Problem Statement</h4>
+<p>Given the root of a binary tree, return its maximum depth.</p>
+<blockquote>
+<p>A binary tree&rsquo;s maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.</p>
+</blockquote>
+<p>Example 1:</p>
+<pre tabindex="0"><code>    (3)
+ /      \
+(9)     (20)
+       /    \
+    (15)     (7)
+</code></pre><p>Input: root = <code>[3,9,20,null,null,15,7]</code>
+Output: <code>3</code></p>
+<h3 id="the-calling-function">The calling function</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
+</span><span style="color:#75715e"> * Definition for a binary tree node.
+</span><span style="color:#75715e"> * public class TreeNode {
+</span><span style="color:#75715e"> *     int val;
+</span><span style="color:#75715e"> *     TreeNode left;
+</span><span style="color:#75715e"> *     TreeNode right;
+</span><span style="color:#75715e"> *     TreeNode() {}
+</span><span style="color:#75715e"> *     TreeNode(int val) { this.val = val; }
+</span><span style="color:#75715e"> *     TreeNode(int val, TreeNode left, TreeNode right) {
+</span><span style="color:#75715e"> *         this.val = val;
+</span><span style="color:#75715e"> *         this.left = left;
+</span><span style="color:#75715e"> *         this.right = right;
+</span><span style="color:#75715e"> *     }
+</span><span style="color:#75715e"> * }
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">maxDepth</span><span style="color:#f92672">(</span>TreeNode root<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">//return maxDepth_Recursive(root);
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//return maxDepth_Iterative_BFS(root);
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> maxDepth_usingHeightVariable<span style="color:#f92672">(</span>root<span style="color:#f92672">);</span>
+        
+    <span style="color:#f92672">}</span> 
+<span style="color:#f92672">}</span>
+</code></pre></div><h4 id="1-recursive-traversal">1. Recursive traversal</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"> <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">maxDepth_Recursive</span><span style="color:#f92672">(</span>TreeNode root<span style="color:#f92672">){</span>
+   <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>root <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> 0<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">return</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">(</span>maxDepth<span style="color:#f92672">(</span>root<span style="color:#f92672">.</span><span style="color:#a6e22e">left</span><span style="color:#f92672">),</span> maxDepth<span style="color:#f92672">(</span>root<span style="color:#f92672">.</span><span style="color:#a6e22e">right</span><span style="color:#f92672">))</span> <span style="color:#f92672">+</span>1<span style="color:#f92672">;</span>
+ <span style="color:#f92672">}</span>
+</code></pre></div><h4 id="2-iterative-bfs">2. Iterative BFS</h4>
+<p>We can use BFS to get the highest level(deepest node). Implement BFS, return the size of the List of level nodes.</p>
+<p>Check this question for more into on <a href="https://leetcode.com/problems/binary-tree-level-order-traversal/http://">102. Binary Tree Level Order Traversal</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">maxDepth_Iterative_BFS</span><span style="color:#f92672">(</span>TreeNode root<span style="color:#f92672">){</span>
+	
+	List<span style="color:#f92672">&lt;</span>List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;&gt;</span> resultList <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+	
+	 <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>root <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> 0<span style="color:#f92672">;</span>
+	
+	TreeNode curr <span style="color:#f92672">=</span> root<span style="color:#f92672">;</span>
+	
+	Queue<span style="color:#f92672">&lt;</span>TreeNode<span style="color:#f92672">&gt;</span> q <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedList<span style="color:#f92672">&lt;&gt;();</span>
+	
+	q<span style="color:#f92672">.</span><span style="color:#a6e22e">offer</span><span style="color:#f92672">(</span>curr<span style="color:#f92672">);</span>
+	
+	<span style="color:#66d9ef">while</span><span style="color:#f92672">(!</span>q<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">()){</span>
+		<span style="color:#66d9ef">int</span> qSize <span style="color:#f92672">=</span> q<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">();</span>
+		List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> subList <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+		
+		<span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span>0<span style="color:#f92672">;</span> i<span style="color:#f92672">&lt;</span> qSize<span style="color:#f92672">;</span> i<span style="color:#f92672">++){</span>
+			curr <span style="color:#f92672">=</span> q<span style="color:#f92672">.</span><span style="color:#a6e22e">poll</span><span style="color:#f92672">();</span>
+			
+			subList<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>curr<span style="color:#f92672">.</span><span style="color:#a6e22e">val</span><span style="color:#f92672">);</span>
+			
+			<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>curr<span style="color:#f92672">.</span><span style="color:#a6e22e">left</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">){</span>
+				q<span style="color:#f92672">.</span><span style="color:#a6e22e">offer</span><span style="color:#f92672">(</span>curr<span style="color:#f92672">.</span><span style="color:#a6e22e">left</span><span style="color:#f92672">);</span>
+			<span style="color:#f92672">}</span>
+			
+			<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>curr<span style="color:#f92672">.</span><span style="color:#a6e22e">right</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">){</span>
+				q<span style="color:#f92672">.</span><span style="color:#a6e22e">offer</span><span style="color:#f92672">(</span>curr<span style="color:#f92672">.</span><span style="color:#a6e22e">right</span><span style="color:#f92672">);</span>
+			<span style="color:#f92672">}</span>
+		<span style="color:#f92672">}</span>
+		<span style="color:#75715e">//add to main list
+</span><span style="color:#75715e"></span>		resultList<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>subList<span style="color:#f92672">);</span>
+		
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#66d9ef">return</span> resultList<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">();</span>
+	
+<span style="color:#f92672">}</span>
+</code></pre></div><h4 id="3-iterative-traversal-using-height-variable">3. Iterative traversal using height variable</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">maxDepth_usingHeightVariable</span><span style="color:#f92672">(</span>TreeNode root<span style="color:#f92672">){</span>
+        
+	 <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>root <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> 0<span style="color:#f92672">;</span>
+	
+	Queue<span style="color:#f92672">&lt;</span>TreeNode<span style="color:#f92672">&gt;</span> q <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedList<span style="color:#f92672">&lt;&gt;();</span>
+	
+	q<span style="color:#f92672">.</span><span style="color:#a6e22e">offer</span><span style="color:#f92672">(</span>root<span style="color:#f92672">);</span>
+	<span style="color:#66d9ef">int</span> maxDepth <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+	
+	<span style="color:#66d9ef">while</span><span style="color:#f92672">(!</span>q<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">()){</span>
+		
+		maxDepth<span style="color:#f92672">++;</span>
+		<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> q<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">();</span>
+		<span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>i<span style="color:#f92672">--</span> <span style="color:#f92672">&gt;</span> 0<span style="color:#f92672">){</span>
+			
+		 TreeNode curr <span style="color:#f92672">=</span> q<span style="color:#f92672">.</span><span style="color:#a6e22e">poll</span><span style="color:#f92672">();</span>
+
+		 <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>curr<span style="color:#f92672">.</span><span style="color:#a6e22e">left</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">){</span>
+			q<span style="color:#f92672">.</span><span style="color:#a6e22e">offer</span><span style="color:#f92672">(</span>curr<span style="color:#f92672">.</span><span style="color:#a6e22e">left</span><span style="color:#f92672">);</span>
+		 <span style="color:#f92672">}</span>
+
+		 <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>curr<span style="color:#f92672">.</span><span style="color:#a6e22e">right</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">){</span>
+			q<span style="color:#f92672">.</span><span style="color:#a6e22e">offer</span><span style="color:#f92672">(</span>curr<span style="color:#f92672">.</span><span style="color:#a6e22e">right</span><span style="color:#f92672">);</span>
+		 <span style="color:#f92672">}</span>
+		<span style="color:#f92672">}</span>
+		
+	<span style="color:#f92672">}</span>
+	<span style="color:#66d9ef">return</span> maxDepth<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><blockquote>
+<p>Time Complexity for all the 3 way : <code>O(n)</code>
+Space Complexity for all the 3 way : <code>O(n)</code></p>
+</blockquote>
+<h4 id="related-problems">Related problems</h4>
+<ol>
+<li><a href="https://leetcode.com/problems/binary-tree-level-order-traversal/solution/">102. Binary Tree Level Order Traversal</a></li>
+<li><a href="https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/">987. Vertical Order Traversal of a Binary Tree</a></li>
+<li><a href="https://leetcode.com/problems/binary-tree-right-side-view/">199. Binary Tree Right Side View</a></li>
+<li><a href="https://leetcode.com/problems/binary-tree-level-order-traversal-ii/">107. Binary Tree Level Order Traversal II</a></li>
+<li><a href="https://leetcode.com/problems/binary-tree-inorder-traversal/">94. Binary Tree Inorder Traversal</a></li>
+</ol>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/demystifying_spring_task_executor/" data-toggle="tooltip" data-placement="top" title="Demystifying Spring Task Executor">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/binary-tree-lowest-common-ancestor-lca/binary-tree-lowest-common-ancestor-lca/" data-toggle="tooltip" data-placement="top" title="Binary Tree: Lowest Common Ancestor (LCA)">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+<div id="hyvor-talk-view"></div>
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 1798; 
+    var HYVOR_TALK_CONFIG = {
+        url: false,
+        id: false
+};
+</script>
+<script async type="text/javascript" src="//talk.hyvor.com/web-api/embed"></script>
+</div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/binary-tree" title="binary-tree">
+                            binary-tree
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/dsa" title="dsa">
+                            dsa
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/java" title="java">
+                            java
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/leetcode" title="leetcode">
+                            leetcode
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/tree-travesal" title="tree-travesal">
+                            tree-travesal
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Microlean" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:ashutosh049@outlook.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/ashutosh049">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/ashutosh049">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    <li>
+                        <a target="_blank" href="https://medium.com/@ashutosh049">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-medium fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+            
+                    
+                    <li>
+                        <a target="_blank" href="https://stackoverflow.com/users/5324721/kumar-ashutosh">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+            
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Microlean 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-177198277-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-177198277-1');
+    </script>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Microlean">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://ashutosh049.github.io//images/banners/main_background.jpg">
+    <meta property="twitter:image" content="https://ashutosh049.github.io//images/banners/main_background.jpg" />
+    
+
+    
+    <meta name="title" content="Binary Tree: Lowest Common Ancestor (LCA)" />
+    <meta property="og:title" content="Binary Tree: Lowest Common Ancestor (LCA)" />
+    <meta property="twitter:title" content="Binary Tree: Lowest Common Ancestor (LCA)" />
+    
+
+    
+    <meta name="description" content="Solving Binary Tree: Lowest Common Ancestor">
+    <meta property="og:description" content="Solving Binary Tree: Lowest Common Ancestor" />
+    <meta property="twitter:description" content="Solving Binary Tree: Lowest Common Ancestor" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Kumar, Ashutosh, java, spring, microservice, cloud, dsa, data structure, algorithm">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Binary Tree: Lowest Common Ancestor (LCA)-Kumar Ashutosh Topics in Software Engineering</title>
+
+    <link rel="canonical" href="/post/binary-tree-lowest-common-ancestor-lca/binary-tree-lowest-common-ancestor-lca/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Microlean</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/leetcode">leetcode</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/tech">tech</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/images/github-pagesLightBlue.jpeg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/java" title="Java">
+                            Java
+                        </a>
+                        
+                        <a class="tag" href="/tags/dsa" title="DSA">
+                            DSA
+                        </a>
+                        
+                        <a class="tag" href="/tags/leetcode" title="Leetcode">
+                            Leetcode
+                        </a>
+                        
+                        <a class="tag" href="/tags/binary-tree" title="Binary Tree">
+                            Binary Tree
+                        </a>
+                        
+                        <a class="tag" href="/tags/tree-travesal" title="Tree Travesal">
+                            Tree Travesal
+                        </a>
+                        
+                    </div>
+                    <h1>Binary Tree: Lowest Common Ancestor (LCA)</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                        Posted on
+                        Monday, August 31, 2020
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>Contents</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                
+                <p><u><a href="https://dev.to/ashutosh049/series/16012">Module: Binary Tree</a></u></p>
+<p>You can refer to the Leetcode problem <a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/">236. Lowest Common Ancestor of a Binary Tree</a></p>
+<hr>
+<h4 id="problem-statement">Problem Statement</h4>
+<p>Given a binary tree, find the <code>lowest common ancestor</code> (LCA) of two given nodes in the tree.</p>
+<blockquote>
+<p>According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).”</p>
+</blockquote>
+<hr>
+<h4 id="example-1">Example 1:</h4>
+<img src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png">
+<p>Input: <code>root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1</code>
+Output: <code>3</code>
+Explanation: The LCA of nodes 5 and 1 is 3.</p>
+<h4 id="example-2">Example 2:</h4>
+<img src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png">
+<p>Input: <code>root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4</code>
+Output: <code>5</code>
+Explanation: The LCA of nodes 5 and 4 is 5, since a node can be a descendant of itself according to the LCA definition.</p>
+<hr>
+<h4 id="intuition">Intuition</h4>
+<p>We need to find the common first parent which has both <code>p</code> and <code>q</code> as descendants.</p>
+<p>Consider the following Binary Tree:</p>
+<p>Input: root: <code>[1, 2, 3, 4, null, 5, 6, null, 7, null, 8, 9, 10, null, null, null, null,null, null, 11, 12]</code>
+p: <code>8</code>
+q : <code>11</code></p>
+<p>
+  <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/75m60k49jyaqo1436722.png" alt="Image 1">
+
+</p>
+<ul>
+<li>We can follow the recursive <code>pre-order dfs traversal</code> and go on comparing the current node with p and q.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>root <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">){</span>
+  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>For each/any given node(root), check:
+<ol>
+<li>If <code>root</code> is <code>null</code>, then we return <code>null</code>.</li>
+<li>If the one of the nodes among <code>p</code> and <code>q</code> is <code>root</code> itself? It means we found a match and in that case, we need to return that node, the matched root.</li>
+</ol>
+</li>
+</ul>
+<p>So for this we can compare the the <code>root</code> with both p and q.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>root <span style="color:#f92672">==</span> p <span style="color:#f92672">||</span> root <span style="color:#f92672">==</span> q<span style="color:#f92672">){</span>
+  <span style="color:#66d9ef">return</span> root<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>
+<p>If any of the target nodes p/q does not exist in left child, it will be null. And similarly for right child, it will be null.</p>
+</li>
+<li>
+<p>Once a match is found in either left or right subtree, it is returned back(upward) to the recursive call and then compared with counter part (left or right value). If both the values are found, let say <code>p</code> is found in left subtree and <code>q</code> found in the right subtree, then the current root, parent of left and right is returned as lca.</p>
+</li>
+<li>
+<p>If none found, null will be returned.</p>
+</li>
+</ul>
+<p>
+  <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/5s035z2ouvi7f21j9z9k.png" alt="Image 2">
+
+</p>
+<ul>
+<li>
+<p>Follow the blue arrows, when <code>8</code> is found(from <code>lca(root.right, 8, 11)</code> of root node <code>5</code>), it is compared with left child <code>null</code> and <code>8</code> is returned from the call stack of root <code>5</code>.</p>
+</li>
+<li>
+<p>Similarly, node <code>11</code> gets returned as a result of recursive call from root <code>3</code>.</p>
+</li>
+<li>
+<p>Finally, in the call stack of root node <code>3</code>, left node is <code>8</code> and right node is <code>11</code>. These 2 values are compared and since both are present(not null), current root (<code>3</code>) is returned which returned back till Tree root <code>1</code>.</p>
+</li>
+</ul>
+<hr>
+<h4 id="complexity-analysis">Complexity Analysis</h4>
+<p><code>Time complexity</code>: <code>O(N)</code>, where <code>N</code> is the number of nodes in the binary tree. In the worst case(left skewed or right skewed) we might be visiting all the nodes of the binary tree.</p>
+<p><code>Space complexity</code>: <code>O(N)</code>. This is because the maximum amount of space utilized by the recursion stack would be <code>N</code> since the height of a skewed binary tree could be <code>N</code>.</p>
+<hr>
+<h4 id="program">program</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> TreeNode <span style="color:#a6e22e">lowestCommonAncestor</span><span style="color:#f92672">(</span>TreeNode root<span style="color:#f92672">,</span> TreeNode p<span style="color:#f92672">,</span> TreeNode q<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>root <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">){</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span> root <span style="color:#f92672">==</span> p <span style="color:#f92672">||</span> root <span style="color:#f92672">==</span> q<span style="color:#f92672">){</span>
+            <span style="color:#66d9ef">return</span> root<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        
+        TreeNode lNode <span style="color:#f92672">=</span> lowestCommonAncestor<span style="color:#f92672">(</span>root<span style="color:#f92672">.</span><span style="color:#a6e22e">left</span><span style="color:#f92672">,</span> p<span style="color:#f92672">,</span> q<span style="color:#f92672">);</span>
+        TreeNode rNode <span style="color:#f92672">=</span> lowestCommonAncestor<span style="color:#f92672">(</span>root<span style="color:#f92672">.</span><span style="color:#a6e22e">right</span><span style="color:#f92672">,</span> p<span style="color:#f92672">,</span> q<span style="color:#f92672">);</span>
+        
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>lNode <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span>
+            <span style="color:#66d9ef">return</span> rNode<span style="color:#f92672">;</span>
+        
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>rNode <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span>
+            <span style="color:#66d9ef">return</span> lNode<span style="color:#f92672">;</span>
+        
+        <span style="color:#66d9ef">return</span> root<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h4 id="test-cases">Test cases</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">[</span>3<span style="color:#f92672">,</span>5<span style="color:#f92672">,</span>1<span style="color:#f92672">,</span>6<span style="color:#f92672">,</span>2<span style="color:#f92672">,</span>0<span style="color:#f92672">,</span>8<span style="color:#f92672">,</span><span style="color:#66d9ef">null</span><span style="color:#f92672">,</span><span style="color:#66d9ef">null</span><span style="color:#f92672">,</span>7<span style="color:#f92672">,</span>4<span style="color:#f92672">]</span>
+5
+1
+<span style="color:#f92672">[</span>3<span style="color:#f92672">,</span>5<span style="color:#f92672">,</span>1<span style="color:#f92672">,</span>6<span style="color:#f92672">,</span>2<span style="color:#f92672">,</span>0<span style="color:#f92672">,</span>8<span style="color:#f92672">,</span><span style="color:#66d9ef">null</span><span style="color:#f92672">,</span><span style="color:#66d9ef">null</span><span style="color:#f92672">,</span>7<span style="color:#f92672">,</span>4<span style="color:#f92672">]</span>
+5
+4
+<span style="color:#f92672">[</span>1<span style="color:#f92672">,</span>2<span style="color:#f92672">]</span>
+1
+2
+</code></pre></div><hr>
+<h4 id="related-problems">Related problems</h4>
+<ul>
+<li><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-ii/">Lowest Common Ancestor of a Binary Tree II</a></li>
+<li><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii/">Lowest Common Ancestor of a Binary Tree III</a></li>
+<li><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iv/">Lowest Common Ancestor of a Binary Tree IV</a></li>
+</ul>
+<hr>
+<p>PS: Stay tuned for more such problem explanation and approaches</p>
+<p>Problem Credit : <a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/">leetcode.com</a></p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/binary-tree-maximum-depthheight-of-deepest-node-using-recursive-and-iterative-way-hpp/binary-tree-maximum-depthheight-of-deepest-node-using-recursive-and-iterative-way-hpp/" data-toggle="tooltip" data-placement="top" title="Binary Tree: Maximum Depth/Height Of Deepest Node using recursive and iterative way">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+<div id="hyvor-talk-view"></div>
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 1798; 
+    var HYVOR_TALK_CONFIG = {
+        url: false,
+        id: false
+};
+</script>
+<script async type="text/javascript" src="//talk.hyvor.com/web-api/embed"></script>
+</div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/binary-tree" title="binary-tree">
+                            binary-tree
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/dsa" title="dsa">
+                            dsa
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/java" title="java">
+                            java
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/leetcode" title="leetcode">
+                            leetcode
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/tree-travesal" title="tree-travesal">
+                            tree-travesal
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Microlean" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:ashutosh049@outlook.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/ashutosh049">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/ashutosh049">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    <li>
+                        <a target="_blank" href="https://medium.com/@ashutosh049">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-medium fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+            
+                    
+                    <li>
+                        <a target="_blank" href="https://stackoverflow.com/users/5324721/kumar-ashutosh">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+            
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Microlean 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>
