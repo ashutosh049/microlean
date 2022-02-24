@@ -9,10 +9,10 @@
     <lastBuildDate>Mon, 31 Aug 2020 13:09:42 -0600</lastBuildDate><atom:link href="https://ashutosh049.github.io/tags/spring/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Demystifying Spring Task Executor</title>
-      <link>https://ashutosh049.github.io/post/demystifying_spring_task_executor/</link>
+      <link>https://ashutosh049.github.io/post/demystifying_spring_task_executor/demystifying_spring_task_executor/</link>
       <pubDate>Mon, 31 Aug 2020 13:09:42 -0600</pubDate>
       
-      <guid>https://ashutosh049.github.io/post/demystifying_spring_task_executor/</guid>
+      <guid>https://ashutosh049.github.io/post/demystifying_spring_task_executor/demystifying_spring_task_executor/</guid>
       <description>corePoolSize vs. maxPoolSize vs. queueCapacity
 @Bean @Primary public TaskExecutor taskExecutor() { ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor(); executor.setCorePoolSize(3); executor.setMaxPoolSize(6); executor.setQueueCapacity(4); executor.setWaitForTasksToCompleteOnShutdown(false); executor.setThreadNamePrefix(&amp;#34;my-async&amp;#34;); executor.initialize(); return executor; } Core pool size In a nut shell, Core pool size is the happy path. When a new task is submitted and fewer than Core Pool Size threads are running, a new thread is created to handle the request, even if other threads are idle. If there are greater than Core Pool Size but fewer than Max Pool Size threads running, a new thread is created only if no threads are idle.</description>
     </item>
